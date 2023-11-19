@@ -186,9 +186,9 @@ class Home {
                 progressBar.style.display = "none"
                 info.innerHTML = `Demarrage en cours...`
                 ipcRenderer.send('new-status-discord-jugando',  `Jugando a 'test'`) // Detecta si abres el juego y te cambia la presencia del juego.
-                console.log(e);
-            })
-
+                console.log(e);                                                     // Si usas la version de Selvania Launcher V2 usa:
+            })                                                                      // ipcRenderer.send('new-status-discord-jugando',  `Jugando a '${options.name}'`) <-- Detecta la instancia en la que estas y te cambia el RPC en Discord
+                                                                                    // Importante: para que te funcione correctamente lo tendras que cambiar de lugar en: launch.on('extract', extract => {
             launch.on('close', code => {
                 if (launcherSettings.launcher.close === 'close-launcher') ipcRenderer.send("main-window-show");
                 progressBar.style.display = "none"
